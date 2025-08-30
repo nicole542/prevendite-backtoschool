@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome Back to School - 20 Settembre</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('sfondo.jpg');
+      background-repeat: repeat;
+      background-size: auto;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 40px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #ff1a1a;
+      animation: slideDown 1s ease forwards;
+    }
+
+    p.subtitle {
+      font-size: 1.05em;
+      color: #ddd;
+      margin-bottom: 25px;
+      animation: slideUp 1s ease 0.3s forwards;
+    }
+
+    form {
+      animation: fadeIn 1.2s ease 0.6s forwards;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      transition: transform 0.2s ease;
+      background-color: #000000; /* nero */
+      color: white;
+      outline: none;
+      cursor: pointer;
+      box-shadow: none;
+    }
+
+    input::placeholder, select option {
+      color: #bbb;
+    }
+
+    input:hover, select:hover, input:focus, select:focus {
+      transform: scale(1.03);
+      box-shadow: none;
+      background-color: #1a1a1a; /* leggermente più chiaro al hover/focus */
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1em;
+      background-color: #ff1a1a;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #ff3333;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff6666;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome Back to School</h1>
+    <p class="subtitle">20 Settembre 2025</p>
+    <p class="subtitle">L'evento che dà il via alla nuova stagione</p>
+    <p class="subtitle">Prenota subito la tua prevendita: i posti sono limitati</p>
+
+    <form action="https://formsubmit.co/maimolla18@gmail.com" method="POST" target="_blank">
+      <input type="text" name="nome" placeholder="Nome" required />
+      <input type="text" name="cognome" placeholder="Cognome" required />
+      <input type="tel" name="telefono" placeholder="Numero di telefono" pattern="[0-9]{10}" title="Inserisci un numero valido (10 cifre)" required />
+
+      <select name="prevendite" required>
+        <option value="" disabled selected>Numero di prevendite</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+      </select>
+
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://yoursite.com/thankyou.html" />
+
+      <button type="submit">Prenota ora</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
+
