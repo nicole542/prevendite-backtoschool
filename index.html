@@ -18,6 +18,7 @@
       align-items: center;
     }
 
+    /* overlay leggero solo per migliorare il contrasto */
     body::before {
       content: '';
       position: absolute;
@@ -25,22 +26,21 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.2); /* leggero overlay */
+      background: rgba(0, 0, 0, 0.2); /* leggerissimo overlay, sfondo ancora visibile */
       z-index: 0;
     }
 
     .container {
       position: relative;
       z-index: 1;
-      background-color: rgba(0, 0, 0, 0.5); /* maggiore trasparenza */
+      background-color: rgba(0, 0, 0, 0.4); /* contenitore molto trasparente */
       padding: 35px 30px;
       border-radius: 15px;
       width: 95%;
-      max-width: 480px;
+      max-width: 500px;
       color: white;
       text-align: center;
-      backdrop-filter: blur(5px); /* effetto vetro */
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
       animation: fadeIn 1s ease forwards;
     }
 
@@ -71,7 +71,7 @@
       width: 100%;
       padding: 12px;
       margin-bottom: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 8px;
       font-size: 1em;
       background-color: rgba(255, 255, 255, 0.1);
@@ -144,7 +144,7 @@
 
     <p class="details">
        Una notte unica con DJ set, luci, animazione, effetti speciali e tanta voglia di ricominciare!<br />
-      📍 Location esclusiva con atmosfera top.<br />
+      📍 Location esclusiva a Udine.<br />
        Porta il tuo gruppo e vivete l'evento dell'anno!
     </p>
 
@@ -159,6 +159,7 @@
 
       <select name="prevendite" required>
         <option value="" disabled selected>Numero di prevendite</option>
+        <!-- Opzioni da 1 a 30 -->
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -199,3 +200,4 @@
   </div>
 </body>
 </html>
+
