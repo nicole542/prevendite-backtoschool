@@ -13,9 +13,11 @@
       background-size: cover;
       position: relative;
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* Overlay per migliorare la leggibilità del testo */
     body::before {
       content: '';
       position: absolute;
@@ -23,42 +25,42 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(20, 0, 0, 0.8));
+      background: rgba(0, 0, 0, 0.2); /* solo un leggero overlay per visibilità */
       z-index: 0;
     }
 
     .container {
       position: relative;
       z-index: 1;
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 40px;
-      border-radius: 20px;
-      width: 90%;
-      max-width: 500px;
+      background-color: rgba(0, 0, 0, 0.5); /* Più trasparente */
+      padding: 35px 30px;
+      border-radius: 15px;
+      width: 95%;
+      max-width: 480px;
       color: white;
       text-align: center;
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+      backdrop-filter: blur(5px); /* Effetto vetro smerigliato */
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       animation: fadeIn 1s ease forwards;
-      margin: 60px auto;
     }
 
     h1 {
-      font-size: 2.2em;
+      font-size: 2em;
       margin-bottom: 10px;
-      color: #ff1a1a;
+      color: #ff4d4d;
       animation: slideDown 1s ease forwards;
     }
 
     p.subtitle, p.details {
-      font-size: 1.05em;
-      color: #ddd;
-      margin-bottom: 20px;
+      font-size: 1em;
+      color: #f0f0f0;
+      margin-bottom: 15px;
       animation: slideUp 1s ease 0.3s forwards;
     }
 
     p.details {
-      font-size: 0.95em;
-      color: #ccc;
+      font-size: 0.9em;
+      color: #ddd;
     }
 
     form {
@@ -68,28 +70,28 @@
     input, select {
       width: 100%;
       padding: 12px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 10px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
       font-size: 1em;
-      background-color: #000000;
+      background-color: rgba(255, 255, 255, 0.1);
       color: white;
       outline: none;
-      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     input::placeholder, select option {
-      color: #bbb;
+      color: #ccc;
     }
 
     input:hover, select:hover, input:focus, select:focus {
-      transform: scale(1.03);
-      background-color: #1a1a1a;
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: scale(1.02);
     }
 
     button {
       width: 100%;
-      padding: 15px;
+      padding: 14px;
       font-size: 1.1em;
       background-color: #ff1a1a;
       color: white;
@@ -98,33 +100,37 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 0 15px #ff3333;
+      box-shadow: 0 0 12px #ff1a1a88;
     }
 
     button:hover {
       background-color: #cc0000;
       transform: scale(1.05);
-      box-shadow: 0 0 25px #ff6666;
+      box-shadow: 0 0 20px #ff6666;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
+      from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
     }
 
     @keyframes slideDown {
-      from { transform: translateY(-30px); opacity: 0; }
+      from { transform: translateY(-20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
 
     @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
+      from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
 
     @media (max-width: 500px) {
       h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
+      }
+
+      .container {
+        padding: 25px 20px;
       }
     }
   </style>
@@ -135,15 +141,15 @@
     <p class="subtitle">20 Settembre 2025</p>
     <p class="subtitle">L'evento che dà il via alla nuova stagione</p>
     <p class="subtitle">Prenota subito la tua prevendita: i posti sono limitati</p>
-    
+
     <p class="details">
-       Preparati per una serata indimenticabile con musica, spettacolo, animazione e tante sorprese. <br />
-       DJ set, luci mozzafiato e atmosfera da non perdere! <br />
-       Location esclusiva nel cuore della città.
+      🎉 Una notte unica con DJ set, luci, animazione, effetti speciali e tanta voglia di ricominciare!<br />
+      📍 Location esclusiva con atmosfera top.<br />
+      🕺💃 Porta il tuo gruppo e vivete l'evento dell'anno!
     </p>
 
     <p class="details">
-       Per info e supporto: <strong>320 241 0987</strong>
+      📞 Info & supporto: <strong>320 241 0987</strong>
     </p>
 
     <form action="https://formsubmit.co/maimolla18@gmail.com" method="POST">
@@ -153,6 +159,8 @@
 
       <select name="prevendite" required>
         <option value="" disabled selected>Numero di prevendite</option>
+        <!-- Genera opzioni da 1 a 30 -->
+        <!-- Puoi anche farlo dinamicamente con JS -->
         ${[...Array(30)].map((_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
       </select>
 
@@ -164,6 +172,7 @@
   </div>
 </body>
 </html>
+
 
 
 
