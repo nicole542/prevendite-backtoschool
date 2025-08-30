@@ -9,18 +9,28 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('sfondo.jpg');
-      background-repeat: repeat;
-      background-size: auto;
-      background-position: center;
+      background: url('sfondo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    }
+
+    /* Overlay per migliorare la leggibilità del testo */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(20, 0, 0, 0.8));
+      z-index: 0;
     }
 
     .container {
-      background-color: rgba(0, 0, 0, 0.8);
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.85);
       padding: 40px;
       border-radius: 20px;
       width: 90%;
@@ -29,6 +39,7 @@
       text-align: center;
       box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
       animation: fadeIn 1s ease forwards;
+      margin: 60px auto;
     }
 
     h1 {
@@ -38,11 +49,16 @@
       animation: slideDown 1s ease forwards;
     }
 
-    p.subtitle {
+    p.subtitle, p.details {
       font-size: 1.05em;
       color: #ddd;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       animation: slideUp 1s ease 0.3s forwards;
+    }
+
+    p.details {
+      font-size: 0.95em;
+      color: #ccc;
     }
 
     form {
@@ -56,12 +72,10 @@
       border: none;
       border-radius: 10px;
       font-size: 1em;
-      transition: transform 0.2s ease;
-      background-color: #000000; /* nero */
+      background-color: #000000;
       color: white;
       outline: none;
       cursor: pointer;
-      box-shadow: none;
     }
 
     input::placeholder, select option {
@@ -70,8 +84,7 @@
 
     input:hover, select:hover, input:focus, select:focus {
       transform: scale(1.03);
-      box-shadow: none;
-      background-color: #1a1a1a; /* leggermente più chiaro al hover/focus */
+      background-color: #1a1a1a;
     }
 
     button {
@@ -122,6 +135,16 @@
     <p class="subtitle">20 Settembre 2025</p>
     <p class="subtitle">L'evento che dà il via alla nuova stagione</p>
     <p class="subtitle">Prenota subito la tua prevendita: i posti sono limitati</p>
+    
+    <p class="details">
+       Preparati per una serata indimenticabile con musica, spettacolo, animazione e tante sorprese. <br />
+       DJ set, luci mozzafiato e atmosfera da non perdere! <br />
+       Location esclusiva nel cuore della città.
+    </p>
+
+    <p class="details">
+       Per info e supporto: <strong>320 241 0987</strong>
+    </p>
 
     <form action="https://formsubmit.co/maimolla18@gmail.com" method="POST">
       <input type="text" name="nome" placeholder="Nome" required />
@@ -130,36 +153,7 @@
 
       <select name="prevendite" required>
         <option value="" disabled selected>Numero di prevendite</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
+        ${[...Array(30)].map((_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
       </select>
 
       <input type="hidden" name="_captcha" value="false" />
@@ -170,8 +164,6 @@
   </div>
 </body>
 </html>
-
-
 
 
 
