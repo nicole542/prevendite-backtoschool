@@ -9,45 +9,100 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #000;
-      color: #ff1a1a;
+      background: linear-gradient(120deg, #000000, #1a0000, #000000);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      text-align: center;
       flex-direction: column;
+      text-align: center;
+      overflow: hidden;
     }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     h1 {
-      font-size: 2.5em;
+      font-size: 3em;
       margin-bottom: 20px;
+      color: #ff1a1a;
+      text-shadow: 0 0 10px #ff1a1a, 0 0 20px #ff4d4d;
+      animation: fadeInDown 1s ease forwards;
     }
+
     p {
       font-size: 1.2em;
-      color: #ddd;
-      max-width: 400px;
+      color: #eeeeee;
+      max-width: 500px;
+      margin: 0 20px 30px;
+      animation: fadeInUp 1s ease 0.3s forwards;
     }
+
     a {
-      margin-top: 30px;
       color: #ff1a1a;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1em;
       border: 2px solid #ff1a1a;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border-radius: 10px;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #ff1a1a55;
+      animation: fadeIn 1s ease 0.6s forwards;
     }
+
     a:hover {
       background-color: #ff1a1a;
       color: #000;
+      box-shadow: 0 0 25px #ff1a1a;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      a {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Grazie per la tua prenotazione!</h1>
-  <p>abbiamo inviato la prenotazione al nostro staff ti faremo sapere.<br>Non vediamo l’ora di vederti al Back to School 2025.</p>
+  <p>
+    Abbiamo ricevuto la tua richiesta e il nostro staff ti contatterà a breve.<br>
+    Non vediamo l’ora di vederti al <strong>Back to School 2025</strong>! 🎉
+  </p>
   <a href="https://nicole542.github.io/prevendite-backtoschool/">Torna alla pagina principale</a>
 </body>
 </html>
+
 
